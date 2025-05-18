@@ -51,30 +51,138 @@
                 </div>
               </div>
               <div class="">
-                <button
-                  class="text-white font-semibold text-base bg-gradient-to-r from-secondaryblue to-secondarypink py-3.5 w-full rounded-md">Login</button>
+                <button @click="showModal = true"
+                  class="text-white font-semibold text-base bg-gradient-to-r from-secondaryblue to-secondarypink py-3.5 w-full rounded-md">
+                  Login
+                </button>
               </div>
             </form>
+
           </div>
         </div>
-
+        <button @click="showModal = true"
+          class="text-white font-semibold text-base bg-gradient-to-r from-secondaryblue to-secondarypink py-3.5 w-[100px] mt-12 rounded-md">
+          Fire Modal
+        </button>
       </div>
       <div class="hidden lg:flex justify-end h-[700px]">
         <img class="rounded-3xl" :src="loginBanner" alt="" />
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <transition name="fade">
+    <div v-if="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div class="bg-white rounded-lg shadow-xl w-[30rem] p-4 relative">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold">Select Network</h2>
+          <button @click="showModal = false" class="text-gray-500 hover:text-black w-6 h-6">
+            <XMarkIcon class="w-6 h-6" />
+          </button>
+        </div>
+
+        <!-- Network List -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between p-2 rounded hover:bg-gray-100 transition border-b-2 pb-3">
+            <div class="flex items-center space-x-3">
+              <img :src="Steller" alt="" class="w-10 h-10 rounded-full" />
+              <span class="text-sm font-medium text-gray-800">Steller</span>
+            </div>
+            <div>
+              <ChevronRightIcon class="w-4 h-4 text-gray-400" />
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded hover:bg-gray-100 transition border-b-2 pb-3">
+            <div class="flex items-center space-x-3">
+              <img :src="Ripple" alt="" class="w-10 h-10 rounded-full" />
+              <span class="text-sm font-medium text-gray-800">Ripple</span>
+            </div>
+            <div>
+              <ChevronRightIcon class="w-4 h-4 text-gray-400" />
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded hover:bg-gray-100 transition border-b-2 pb-3">
+            <div class="flex items-center space-x-3">
+              <img :src="Hedera" alt="" class="w-10 h-10 rounded-full" />
+              <span class="text-sm font-medium text-gray-800">Hedera</span>
+            </div>
+            <div class="text-xs bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full">
+              Coming soon
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded hover:bg-gray-100 transition border-b-2 pb-3">
+            <div class="flex items-center space-x-3">
+              <img :src="Aptos" alt="" class="w-10 h-10 rounded-full" />
+              <span class="text-sm font-medium text-gray-800">Aptos</span>
+            </div>
+            <div class="text-xs bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full">
+              Coming soon
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded hover:bg-gray-100 transition border-b-2 pb-3">
+            <div class="flex items-center space-x-3">
+              <img :src="Vechain" alt="" class="w-10 h-10 rounded-full" />
+              <span class="text-sm font-medium text-gray-800">VeChain</span>
+            </div>
+            <div class="text-xs bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full">
+              Coming soon
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded hover:bg-gray-100 transition border-b-2 pb-3">
+            <div class="flex items-center space-x-3">
+              <img :src="Algorand" alt="" class="w-10 h-10 rounded-full" />
+              <span class="text-sm font-medium text-gray-800">Algorand</span>
+            </div>
+            <div class="text-xs bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full">
+              Coming soon
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded hover:bg-gray-100 transition border-b-2 pb-3">
+            <div class="flex items-center space-x-3">
+              <img :src="Celo" alt="" class="w-10 h-10 rounded-full" />
+              <span class="text-sm font-medium text-gray-800">Celo</span>
+            </div>
+            <div class="text-xs bg-gray-200 text-gray-500 px-2 py-0.5 rounded-full">
+              Coming soon
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition>
+
 </template>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
 
 <script setup>
 import Logo from "../assets/Logo.png";
 import loginBanner from "../assets/loginbanner.png";
+import Steller from "../assets/stellar.png";
+import Ripple from "../assets/ripple.png";
+import Hedera from "../assets/hedera.png";
+import Aptos from "../assets/aptos.png";
+import Vechain from "../assets/vechain.jpg";
+import Algorand from "../assets/algorand.png";
+import Celo from "../assets/celo.png";
 import { ref } from 'vue';
-import { EyeIcon, EyeSlashIcon } from '@heroicons/vue/24/outline';
-import { EnvelopeIcon } from '@heroicons/vue/24/outline'
+import { EyeIcon, EyeSlashIcon, EnvelopeIcon, XMarkIcon, ChevronRightIcon } from '@heroicons/vue/24/outline';
+
 
 const showPassword = ref(false);
 function togglePassword() {
   showPassword.value = !showPassword.value;
 }
+const showModal = ref(false)
 </script>
