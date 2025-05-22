@@ -21,7 +21,7 @@
                 <ul class="space-y-3">
                     <p class="text-black font-bold">Useful Links</p>
                     <li><router-link to="/contact_us">Contact us</router-link></li>
-                    <li><router-link to="/terms&condition">Terms & Conditions</router-link></li>
+                    <li><router-link to="/documentation">Documentation</router-link></li>
                     <li><router-link to="/faqs">FAQs</router-link></li>
                 </ul>
 

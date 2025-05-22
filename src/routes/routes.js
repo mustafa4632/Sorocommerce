@@ -17,7 +17,7 @@ import LandingPage from "../pages/Landing.vue";
 import About from "../pages/About.vue";
 import FAQs from "../pages/FAQs.vue";
 import Contactus from "../pages/ContactUs.vue";
-import TermAndCondition from "../pages/TermsAndCondition.vue";
+import Documentation from "../pages/Documentation.vue";
 import ProductCart from "../pages/ProductCart.vue";
 
 const router = createRouter({
@@ -89,9 +89,9 @@ const router = createRouter({
             component:About,
         },
         {
-            path:"/terms&condition",
-            name:"TermAndCondition",
-            component:TermAndCondition,
+            path:"/documentation",
+            name:"Documentation",
+            component:Documentation,
         },
         {
             path:"/faqs",
